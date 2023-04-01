@@ -9,9 +9,6 @@ let later_ten = document.querySelector('.later_ten')
 axios.get(BASE_URL + '/users')
   .then(res => reload(res.data))
 
-const allArr = []
-
-
 function reload(arr) {
   cont.innerHTML = ""
   for (let item of arr) {
@@ -42,18 +39,3 @@ function changeColor() {
   return false;
 }
 
-form.addEventListener("submit", function (event) {
-  event.preventDefault()
-
-  let task = {
-    id: Math.random()
-  }
-
-  let fm = new FormData(form)
-
-  fm.forEach((value, key) => {
-    task[key] = value
-  })
-
-  reload(allArr)
-})
